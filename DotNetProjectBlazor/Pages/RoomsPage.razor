@@ -13,11 +13,14 @@
         <div id="roomButtonsContainer">
             @foreach (var Room in Rooms)
             {
-                <div class="roomButtons">
-                    <a href="/@UserId/@ParkId/@Room.id"><button class="roomButton">@Room.name</button></a>
-                    <button class="roomActionButton">Update</button>
-                    <button class="roomActionButton" @onclick="() => DeleteRoom(Room.id)">Delete</button>
-                </div>
+                @if (Room.is_enabled)
+                {
+                    <div class="roomButtons">
+                        <a href="/@UserId/@ParkId/@Room.id"><button class="roomButton">@Room.name</button></a>
+                        <button class="roomActionButton">Update</button>
+                        <button class="roomActionButton" @onclick="() => DeleteRoom(Room.id)">Delete</button>
+                    </div>
+                }
             }
         </div>
     }
