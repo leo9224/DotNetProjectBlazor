@@ -1,0 +1,19 @@
+﻿@page "/{UserId:int}"
+
+<div id="parksPage">
+    <h1>Parks</h1>
+
+    @if (Parks.Count != 0)
+    {
+        <div id="parkButtonsContainer">
+            @foreach (var Park in Parks)
+            {
+                <a href="/@UserId/@Park.id"><button class="parkButton">@Park.name</button></a>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No park</p>
+    }
+</div>

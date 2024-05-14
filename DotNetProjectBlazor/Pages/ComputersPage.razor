@@ -1,0 +1,32 @@
+﻿@page "/{UserId:int}/{ParkId:int}/{RoomId:int}"
+
+@inject NavigationManager NavigationManager
+
+<div id="computersPage">
+    <h1>Computers</h1>
+    
+    @if (Computers.Count != 0)
+    {
+        <div id="computerCardsContainer">
+            @foreach (var Computer in Computers)
+            {
+                <div class="computerCard">
+                    <div class="computerCardContainer">
+                        <p>@Computer.name</p>
+                        <p>@Computer.os</p>
+                        <p>@Computer.os_version</p>
+                        <p>@Computer.status</p>
+
+                        <div class="computerCardActionButtonsContainer">
+                            <button class="computerCardActionButtons" @onclick="() => DeleteComputer(Computer.id)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No computer</p>
+    }
+</div>

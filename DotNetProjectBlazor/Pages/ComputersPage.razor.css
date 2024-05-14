@@ -1,0 +1,56 @@
+﻿#computersPage {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+#computerCardsContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.computerCard {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+	transition: 0.3s;
+	width: 300px;
+	border-radius: 5px;
+	margin: 10px;
+	height: 100%;
+	background-color: #005067;
+	color: white;
+}
+
+.computerCard:hover {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+
+.computerCardContainer {
+	padding: 10px 16px;
+}
+
+.computerCardActionButtonsContainer {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.computerCardActionButtonsContainer button{
+	margin: 0px 3px;
+}
+
+.computerCardActionButtons {
+	background-color: #E84D0D;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	height: fit-content
+}

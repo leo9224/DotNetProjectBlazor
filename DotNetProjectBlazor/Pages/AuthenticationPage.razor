@@ -1,0 +1,17 @@
+﻿@page "/"
+
+@inject NavigationManager NavigationManager
+
+<div id="loginForm">
+	<h1>Connexion</h1>
+
+	<form>
+		<input type="text" id="email" name="email" placeholder="Email" @oninput="OnEmailChange">
+
+		<input type="password" id="password" name="password" placeholder="Password" @bind-value="Password" @oninput="OnPasswordChange">
+
+		<label hidden="@IsValidCredentials">Invalid email or password !</label>
+
+		<button type="submit" disabled="@IsInvalidEmailAndPassword" @onclick="Authenticate" @onclick:preventDefault="true">Login</button>
+	</form>
+</div>
