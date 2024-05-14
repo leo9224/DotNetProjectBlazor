@@ -5,7 +5,7 @@
 <div id="parksPage">
     <div id="headerContainer">
         <h1>Parks</h1>
-        <button class="parkActionButton">New</button>
+        <a href="@UserId/parkForm/-1"><button class="parkActionButton">New</button></a>
     </div>
 
     @if (Parks.Count != 0)
@@ -17,7 +17,7 @@
                 {
                     <div class="parkButtons">
                         <a href="/@UserId/@Park.id"><button class="parkButton">@Park.name</button></a>
-                        <button class="parkActionButton">Update</button>
+                        <a href="@UserId/parkForm/@Park.id"><button class="parkActionButton">Update</button></a>
                         <button class="parkActionButton" @onclick="() => DeletePark(Park.id)">Delete</button>
                     </div>
                 }

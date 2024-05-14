@@ -1,0 +1,15 @@
+﻿@page "/{UserId:int}/parkForm/{ParkId:int}"
+
+@inject NavigationManager NavigationManager
+
+<div id="parkForm">
+	<h1>Park form</h1>
+
+	<form>
+		<input type="text" id="name" name="name" placeholder="Name" @bind-value="Park.name">
+
+		<button type="submit" @onclick="SubmitForm" @onclick:preventDefault="true">Submit</button>
+	</form>
+</div>
+
+
