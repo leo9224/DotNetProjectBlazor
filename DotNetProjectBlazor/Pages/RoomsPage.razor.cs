@@ -25,5 +25,20 @@ namespace DotNetProjectBlazor.Pages
                 Rooms = rooms.ToList();
             }
         }
+
+        public async void DeleteRoom(int id)
+        {
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage httpResponseMessage = await httpClient.DeleteAsync($"{Config.APIEndpoint}/api/room/{id}");
+
+            if (httpResponseMessage.IsSuccessStatusCode)
+            {
+                NavigationManager.NavigateTo(NavigationManager.Uri, true);
+            }
+            else
+            {
+
+            }
+        }
     }
 }

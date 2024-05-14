@@ -1,14 +1,23 @@
 ﻿@page "/{UserId:int}/{ParkId:int}"
 
+@inject NavigationManager NavigationManager
+
 <div id="roomsPage">
-    <h1>Rooms</h1>
+    <div id="headerContainer">
+        <h1>Rooms</h1>
+        <button class="roomActionButton">New</button>
+    </div>
 
     @if (Rooms.Count != 0)
     {
         <div id="roomButtonsContainer">
             @foreach (var Room in Rooms)
             {
-                <a href="/@UserId/@ParkId/@Room.id"><button class="roomButton">@Room.name</button></a>
+                <div class="roomButtons">
+                    <a href="/@UserId/@ParkId/@Room.id"><button class="roomButton">@Room.name</button></a>
+                    <button class="roomActionButton">Update</button>
+                    <button class="roomActionButton" @onclick="() => DeleteRoom(Room.id)">Delete</button>
+                </div>
             }
         </div>
     }

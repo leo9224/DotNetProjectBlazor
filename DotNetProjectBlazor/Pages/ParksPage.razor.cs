@@ -32,5 +32,20 @@ namespace DotNetProjectBlazor.Pages
                 }
             }
         }
+
+        public async void DeletePark(int id)
+        {
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage httpResponseMessage = await httpClient.DeleteAsync($"{Config.APIEndpoint}/api/park/{id}");
+
+            if (httpResponseMessage.IsSuccessStatusCode)
+            {
+                NavigationManager.NavigateTo(NavigationManager.Uri, true);
+            }
+            else
+            {
+
+            }
+        }
     }
 }

@@ -1,14 +1,26 @@
 ﻿@page "/{UserId:int}"
 
+@inject NavigationManager NavigationManager
+
 <div id="parksPage">
-    <h1>Parks</h1>
+    <div id="headerContainer">
+        <h1>Parks</h1>
+        <button class="parkActionButton">New</button>
+    </div>
 
     @if (Parks.Count != 0)
     {
         <div id="parkButtonsContainer">
             @foreach (var Park in Parks)
             {
-                <a href="/@UserId/@Park.id"><button class="parkButton">@Park.name</button></a>
+                @if (Park.is_enabled)
+                {
+                    <div class="parkButtons">
+                        <a href="/@UserId/@Park.id"><button class="parkButton">@Park.name</button></a>
+                        <button class="parkActionButton">Update</button>
+                        <button class="parkActionButton" @onclick="() => DeletePark(Park.id)">Delete</button>
+                    </div>
+                }
             }
         </div>
     }
