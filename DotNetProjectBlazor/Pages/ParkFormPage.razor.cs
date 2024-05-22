@@ -14,15 +14,11 @@ namespace DotNetProjectBlazor.Pages
         public int UserId { get; set; }
         [Parameter]
         public int ParkId { get; set; }
-        public Park? Park { get; set; }
+        public Park? Park { get; set; } = new Park() { name = "" };
 
         protected override async Task OnInitializedAsync()
         {
-            if (ParkId == -1)
-            {
-                Park = new Park() { name = ""};
-            }
-            else
+            if (ParkId != -1)
             {
                 HttpClient httpClient = new HttpClient();
                 //httpClient.DefaultRequestHeaders.Add("Authorization", Token);

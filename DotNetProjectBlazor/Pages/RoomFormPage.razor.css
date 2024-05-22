@@ -1,0 +1,38 @@
+﻿#roomForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#roomForm form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#roomForm button {
+    margin: 20px 0;
+    width: 75%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #005067;
+    color: white;
+}
+
+#roomForm button:disabled {
+    background-color: grey;
+}
+
+#roomForm input {
+    margin: 10px 0;
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
