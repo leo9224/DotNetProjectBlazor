@@ -17,7 +17,7 @@ namespace DotNetProjectBlazor.Pages
         protected override async Task OnInitializedAsync()
         {
             HttpClient httpClient = new HttpClient();
-            //httpClient.DefaultRequestHeaders.Add("Authorization", Token);
+            httpClient.DefaultRequestHeaders.Add("Authorization", await LocalStorage.GetItemAsStringAsync("Token"));
             HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"{Config.APIEndpoint}/api/computer/get_by_room/{RoomId}");
 
             IEnumerable<Computer>? computers = await httpResponseMessage.Content.ReadFromJsonAsync<IEnumerable<Computer>>();
@@ -54,6 +54,7 @@ namespace DotNetProjectBlazor.Pages
         public async void DeleteComputer(int id)
         {
             HttpClient httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("Authorization", await LocalStorage.GetItemAsStringAsync("Token"));
             HttpResponseMessage httpResponseMessage = await httpClient.DeleteAsync($"{Config.APIEndpoint}/api/computer/{id}");
 
             if (httpResponseMessage.IsSuccessStatusCode)

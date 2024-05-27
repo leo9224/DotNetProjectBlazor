@@ -23,7 +23,7 @@ namespace DotNetProjectBlazor.Pages
             if (RoomId != -1)
             {
                 HttpClient httpClient = new HttpClient();
-                //httpClient.DefaultRequestHeaders.Add("Authorization", Token);
+                httpClient.DefaultRequestHeaders.Add("Authorization", await LocalStorage.GetItemAsStringAsync("Token"));
                 HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"{Config.APIEndpoint}/api/room/{RoomId}");
 
                 Room = await httpResponseMessage.Content.ReadFromJsonAsync<Room>();
@@ -35,7 +35,7 @@ namespace DotNetProjectBlazor.Pages
             Room.park_id = ParkId;
 
             HttpClient httpClient = new HttpClient();
-            //httpClient.DefaultRequestHeaders.Add("Authorization", Token);
+            httpClient.DefaultRequestHeaders.Add("Authorization", await LocalStorage.GetItemAsStringAsync("Token"));
             HttpContent content = new StringContent(JsonConvert.SerializeObject(Room), Encoding.UTF8, MediaTypeHeaderValue.Parse("application/json"));
 
 

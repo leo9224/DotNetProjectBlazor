@@ -57,6 +57,8 @@ namespace DotNetProjectBlazor.Pages
                 string token = $"Bearer {jsonResponse.GetValue("token")}";
                 int userId = jsonResponse.GetValue("user_id")!.ToObject<int>();
 
+                await LocalStorage.SetItemAsStringAsync("Token", token);
+
                 NavigationManager.NavigateTo($"/{userId}");
             }
             else

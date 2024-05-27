@@ -13,7 +13,7 @@ namespace DotNetProjectBlazor.Pages
         protected override async Task OnInitializedAsync()
         {
             HttpClient httpClient = new HttpClient();
-            //httpClient.DefaultRequestHeaders.Add("Authorization", Token);
+            httpClient.DefaultRequestHeaders.Add("Authorization", await LocalStorage.GetItemAsStringAsync("Token"));
             HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"{Config.APIEndpoint}/api/user_park/get_by_user/{UserId}");
 
             IEnumerable<UserPark>? userParks = await httpResponseMessage.Content.ReadFromJsonAsync<IEnumerable<UserPark>>();
@@ -36,6 +36,7 @@ namespace DotNetProjectBlazor.Pages
         public async void DeletePark(int id)
         {
             HttpClient httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Add("Authorization", await LocalStorage.GetItemAsStringAsync("Token"));
             HttpResponseMessage httpResponseMessage = await httpClient.DeleteAsync($"{Config.APIEndpoint}/api/park/{id}");
 
             if (httpResponseMessage.IsSuccessStatusCode)

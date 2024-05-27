@@ -21,7 +21,7 @@ namespace DotNetProjectBlazor.Pages
             if (ParkId != -1)
             {
                 HttpClient httpClient = new HttpClient();
-                //httpClient.DefaultRequestHeaders.Add("Authorization", Token);
+                httpClient.DefaultRequestHeaders.Add("Authorization", await LocalStorage.GetItemAsStringAsync("Token"));
                 HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"{Config.APIEndpoint}/api/park/{ParkId}");
 
                 Park = await httpResponseMessage.Content.ReadFromJsonAsync<Park>();
@@ -31,7 +31,7 @@ namespace DotNetProjectBlazor.Pages
         public async void SubmitForm(MouseEventArgs args)
         {
             HttpClient httpClient = new HttpClient();
-            //httpClient.DefaultRequestHeaders.Add("Authorization", Token);
+            httpClient.DefaultRequestHeaders.Add("Authorization", await LocalStorage.GetItemAsStringAsync("Token"));
             HttpContent content = new StringContent(JsonConvert.SerializeObject(Park), Encoding.UTF8, MediaTypeHeaderValue.Parse("application/json"));
 
 
