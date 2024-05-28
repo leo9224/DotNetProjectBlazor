@@ -1,4 +1,8 @@
-﻿#computersPage {
+﻿h1 {
+	color: white
+}
+
+#computersPage {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -19,7 +23,7 @@
 	border-radius: 5px;
 	margin: 10px;
 	height: 100%;
-	background-color: #005067;
+	background-color: #E84D0D;
 	color: white;
 }
 
@@ -41,7 +45,7 @@
 }
 
 .computerCardActionButtons {
-	background-color: #E84D0D;
+	background-color: #005067;
 	border: none;
 	border-radius: 5px;
 	color: white;
@@ -53,4 +57,8 @@
 	margin: 4px 2px;
 	cursor: pointer;
 	height: fit-content
+}
+
+p {
+	color: white;
 }

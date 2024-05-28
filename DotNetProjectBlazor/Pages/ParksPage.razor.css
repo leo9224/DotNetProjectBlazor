@@ -1,4 +1,8 @@
-﻿#parksPage {
+﻿h1 {
+    color: white
+}
+
+#parksPage {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,7 +11,7 @@
 }
 
 .parkButton {
-    background-color: #005067;
+    background-color: #E84D0D;
     border: none;
     border-radius: 5px;
     color: white;
@@ -18,12 +22,6 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-}
-
-#parkButtonsContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .parkActionButton {
@@ -40,12 +38,21 @@
     height: fit-content
 }
 
-.parkButtons{
+#headerContainer {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
-#headerContainer{
-    display: flex;
-    align-items: center;
+#headerContainer button {
+    margin-left: 20px;
+}
+
+td{
+    text-align: center;
+}
+
+p{
+    color: white;
 }

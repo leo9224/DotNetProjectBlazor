@@ -11,19 +11,19 @@
 
     @if (Rooms.Count != 0)
     {
-        <div id="roomButtonsContainer">
+        <table>
             @foreach (var Room in Rooms)
             {
                 @if (Room.is_enabled)
                 {
-                    <div class="roomButtons">
-                        <a href="/@UserId/@ParkId/@Room.id"><button class="roomButton">@Room.name</button></a>
-                        <a href="@UserId/@ParkId/roomForm/@Room.id"><button class="roomActionButton">Update</button></a>
-                        <button class="roomActionButton" @onclick="() => DeleteRoom(Room.id)">Delete</button>
-                    </div>
+                    <tr>
+                        <td><a href="/@UserId/@ParkId/@Room.id"><button class="roomButton">@Room.name</button></a></td>
+                        <td><a href="@UserId/@ParkId/roomForm/@Room.id"><button class="roomActionButton">Update</button></a></td>
+                        <td><button class="roomActionButton" @onclick="() => DeleteRoom(Room.id)">Delete</button></td>
+                    </tr>
                 }
             }
-        </div>
+        </table>
     }
     else
     {

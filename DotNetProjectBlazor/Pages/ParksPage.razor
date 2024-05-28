@@ -11,19 +11,19 @@
 
     @if (Parks.Count != 0)
     {
-        <div id="parkButtonsContainer">
+        <table>
             @foreach (var Park in Parks)
             {
                 @if (Park.is_enabled)
                 {
-                    <div class="parkButtons">
-                        <a href="/@UserId/@Park.id"><button class="parkButton">@Park.name</button></a>
-                        <a href="@UserId/parkForm/@Park.id"><button class="parkActionButton">Update</button></a>
-                        <button class="parkActionButton" @onclick="() => DeletePark(Park.id)">Delete</button>
-                    </div>
+                    <tr>
+                        <td><a href="/@UserId/@Park.id"><button class="parkButton">@Park.name</button></a></td>
+                        <td><a href="@UserId/parkForm/@Park.id"><button class="parkActionButton">Update</button></a></td>
+                        <td><button class="parkActionButton" @onclick="() => DeletePark(Park.id)">Delete</button></td>
+                    </tr>
                 }
             }
-        </div>
+        </table>
     }
     else
     {
