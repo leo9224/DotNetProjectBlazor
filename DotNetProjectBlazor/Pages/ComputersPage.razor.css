@@ -1,8 +1,4 @@
-﻿h1 {
-	color: white
-}
-
-#computersPage {
+﻿#computersPage {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -61,4 +57,18 @@
 
 p {
 	color: white;
+}
+
+#headerContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	background-color: #E84D0D;
+	margin-bottom: 20px;
+}
+
+#headerContainer h1 {
+	margin: 10px;
+	color: white
 }

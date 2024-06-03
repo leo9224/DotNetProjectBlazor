@@ -1,8 +1,4 @@
-﻿h1 {
-    color: white
-}
-
-#parksPage {
+﻿#parksPage {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,10 +39,18 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    background-color: #E84D0D;
+    margin-bottom: 20px;
 }
 
 #headerContainer button {
     margin-left: 20px;
+    background-color: #005067;
+}
+
+#headerContainer h1 {
+    margin: 10px;
+    color: white
 }
 
 td{

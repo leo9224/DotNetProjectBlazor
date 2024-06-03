@@ -4,7 +4,9 @@
 @inject ILocalStorageService LocalStorage;
 
 <div id="parkForm">
-	<h1>Park form</h1>
+	<div id="headerContainer">
+		<h1>Park form</h1>
+	</div>
 
 	<form>
 		<input type="text" id="name" name="name" placeholder="Name" @bind-value="Park.name">

@@ -1,8 +1,4 @@
-﻿h1 {
-    color: white
-}
-
-#roomForm {
+﻿#roomForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,4 +35,18 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+#headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #E84D0D;
+    margin-bottom: 20px;
+}
+
+#headerContainer h1 {
+    margin: 10px;
+    color: white
 }
