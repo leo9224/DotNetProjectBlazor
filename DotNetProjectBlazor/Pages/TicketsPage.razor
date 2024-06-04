@@ -1,0 +1,40 @@
+﻿@page "/{UserId:int}/tickets"
+
+@inject NavigationManager NavigationManager
+@inject ILocalStorageService LocalStorage;
+
+<div id="roomsPage">
+    <div id="headerContainer">
+        <h1>Tickets</h1>
+    </div>
+
+    @if (Tickets.Count != 0)
+    {
+        <table id="ticketsTable">
+            <tr>
+                <th>Site</th>
+                <th>Room</th>
+                <th>Computer</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Actions</th>
+            </tr>
+
+            @foreach (var Ticket in Tickets)
+            {
+                <tr>
+                    <td>@Ticket.site_name</td>
+                    <td>@Ticket.room_name</td>
+                    <td>@Ticket.computer_name</td>
+                    <td>@Ticket.email</td>
+                    <td>@Ticket.message</td>
+                    <td><button class="ticketActionButton" @onclick="() => DeleteTicket(Ticket.id)">Delete</button></td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>No room</p>
+    }
+</div>

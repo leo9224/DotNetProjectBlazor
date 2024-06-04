@@ -1,0 +1,54 @@
+﻿#headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #E84D0D;
+    margin-bottom: 20px;
+}
+
+#headerContainer button {
+    margin-left: 20px;
+    background-color: #005067;
+}
+
+#headerContainer h1 {
+    margin: 10px;
+    color: white
+}
+
+.ticketActionButton {
+    background-color: #005067;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    height: fit-content
+}
+
+#ticketsTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#ticketsTable td, #ticketsTable th {
+  border: none;
+  padding: 8px;
+}
+
+#ticketsTable tr:nth-child(odd){background-color: #f9ba9f;}
+
+#ticketsTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#ticketsTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #E84D0D;
+  color: white;
+}
