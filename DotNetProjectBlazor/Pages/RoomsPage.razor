@@ -5,8 +5,16 @@
 
 <div id="roomsPage">
     <div id="headerContainer">
-        <h1>Rooms</h1>
-        <a href="@UserId/@ParkId/roomForm/-1"><button class="roomActionButton">New</button></a>
+        <div>
+            <img src="/favicon.png" alt="Logo" id="logo" />
+        </div>
+        <div>
+            <h1>Rooms</h1>
+            <a href="@UserId/@ParkId/roomForm/-1"><button class="roomActionButton">New</button></a>
+        </div>
+        <div>
+            <a href="@UserId/tickets"><button class="roomActionButton">Tickets</button></a>
+        </div>
     </div>
 
     @if (Rooms.Count != 0)

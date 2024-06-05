@@ -5,8 +5,16 @@
 
 <div id="parksPage">
     <div id="headerContainer">
-        <h1>Parks</h1>
-        <a href="@UserId/parkForm/-1"><button class="parkActionButton">New</button></a>
+        <div>
+            <img src="/favicon.png" alt="Logo" id="logo" />
+        </div>
+        <div>
+            <h1>Parks</h1>
+            <a href="@UserId/parkForm/-1"><button class="parkActionButton">New</button></a>
+        </div>
+        <div>
+            <a href="@UserId/tickets"><button class="parkActionButton">Tickets</button></a>
+        </div>
     </div>
 
     @if (Parks.Count != 0)

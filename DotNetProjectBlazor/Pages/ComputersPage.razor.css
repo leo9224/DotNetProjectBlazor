@@ -55,6 +55,20 @@
 	height: fit-content
 }
 
+.computerActionButton {
+	background-color: #E84D0D;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	height: fit-content
+}
+
 p {
 	color: white;
 }
@@ -62,13 +76,30 @@ p {
 #headerContainer {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	width: 100%;
 	background-color: #E84D0D;
 	margin-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#headerContainer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #headerContainer h1 {
 	margin: 10px;
 	color: white
+}
+
+#headerContainer button {
+    background-color: #005067;
+}
+
+#logo {
+	width: 40px;
+	height: 40px;
 }

@@ -5,7 +5,13 @@
 
 <div id="loginForm">
 	<div id="headerContainer">
-		<h1>Authentication</h1>
+		<div>
+			<img src="/favicon.png" alt="Logo" id="logo" />
+		</div>
+		<div>
+			<h1>Authentication</h1>
+		</div>
+		<div></div>
 	</div>
 
 	<form>
@@ -13,7 +19,7 @@
 
 		<input type="password" id="password" name="password" placeholder="Password" @bind-value="Password" @oninput="OnPasswordChange">
 
-		<label hidden="@IsValidCredentials">Invalid email or password !</label>
+		<label id="invalidLabel" hidden="@IsValidCredentials">Invalid email or password !</label>
 
 		<button type="submit" disabled="@IsInvalidEmailAndPassword" @onclick="Authenticate" @onclick:preventDefault="true">Login</button>
 	</form>
