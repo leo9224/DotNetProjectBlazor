@@ -8,18 +8,18 @@
         <h1>Tickets</h1>
     </div>
 
-    @if (Tickets.Count != 0)
-    {
-        <table id="ticketsTable">
-            <tr>
-                <th>Site</th>
-                <th>Room</th>
-                <th>Computer</th>
-                <th>Email</th>
-                <th>Message</th>
-                <th>Actions</th>
-            </tr>
+    <table id="ticketsTable">
+        <tr>
+            <th>Site</th>
+            <th>Room</th>
+            <th>Computer</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Actions</th>
+        </tr>
 
+        @if (Tickets.Count != 0)
+        {
             @foreach (var Ticket in Tickets)
             {
                 <tr>
@@ -31,10 +31,13 @@
                     <td><button class="ticketActionButton" @onclick="() => DeleteTicket(Ticket.id)">Delete</button></td>
                 </tr>
             }
-        </table>
-    }
-    else
-    {
-        <p>No room</p>
-    }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" id="noTicketLine">No ticket</td>
+            </tr>
+        }
+
+    </table>
 </div>
