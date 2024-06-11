@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -7,33 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Pages\ComputersPage.razor.css" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Pages\ComputersPage.razor.css" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.15" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.15" PrivateAssets="all" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="DotNetProjectLibrary">
-      <HintPath>..\..\DotNetProjectLibrary\DotNetProjectLibrary\bin\Release\net7.0\DotNetProjectLibrary.dll</HintPath>
+      <HintPath>..\..\..\Documents\C#\DotNetProjectLibrary\DotNetProjectLibrary\bin\Release\net7.0\DotNetProjectLibrary.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="wwwroot\favicon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\icon-192.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
 </Project>
