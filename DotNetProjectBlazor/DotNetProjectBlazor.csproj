@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <Reference Include="DotNetProjectLibrary">
-      <HintPath>..\..\..\Documents\C#\DotNetProjectLibrary\DotNetProjectLibrary\bin\Release\net7.0\DotNetProjectLibrary.dll</HintPath>
+      <HintPath>..\..\DotNetProjectLibrary\DotNetProjectLibrary\bin\Release\net7.0\DotNetProjectLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
 
