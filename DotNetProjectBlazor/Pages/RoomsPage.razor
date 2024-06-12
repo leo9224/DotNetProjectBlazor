@@ -25,7 +25,7 @@
                 @if (Room.is_enabled)
                 {
                     <tr>
-                        <td><a href="/@UserId/@ParkId/@Room.id"><button class="roomButton">@Room.name</button></a></td>
+                        <td><a href="/@UserId/@ParkId/@Room.id"><button class="roomButton">@Room.name (@Room.id)</button></a></td>
                         <td><a href="@UserId/@ParkId/roomForm/@Room.id"><button class="roomActionButton">Update</button></a></td>
                         <td><button class="roomActionButton" @onclick="() => DeleteRoom(Room.id)">Delete</button></td>
                     </tr>
