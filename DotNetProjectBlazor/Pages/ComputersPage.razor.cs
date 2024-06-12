@@ -1,5 +1,4 @@
-﻿using System.Net.Http.Json;
-using DotNetProjectLibrary.Models;
+﻿using DotNetProjectLibrary.Models;
 using Microsoft.AspNetCore.Components;
 
 namespace DotNetProjectBlazor.Pages
@@ -14,40 +13,22 @@ namespace DotNetProjectBlazor.Pages
         public int RoomId { get; set; }
         private List<Computer> Computers = new List<Computer>();
 
-        protected override async Task OnInitializedAsync()
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            HttpClient httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("Authorization", await LocalStorage.GetItemAsStringAsync("Token"));
-            HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"{Config.APIEndpoint}/api/computer/get_by_room/{RoomId}");
-
-            IEnumerable<Computer>? computers = await httpResponseMessage.Content.ReadFromJsonAsync<IEnumerable<Computer>>();
-
-            /*if (computers is not null)
+            if (firstRender)
             {
-                foreach (Computer computer in computers)
+                HttpClient httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Add("Authorization", await LocalStorage.GetItemAsStringAsync("Token"));
+                HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"{Config.APIEndpoint}/api/computer/get_by_room/{RoomId}");
+
+                IEnumerable<Computer>? computers = await httpResponseMessage.Content.ReadFromJsonAsync<IEnumerable<Computer>>();
+
+                if (computers != null && computers?.Count() != 0)
                 {
-                    int? typeId = computer.type_id;
-
-                    if (typeId is not null)
-                    {
-                        HttpResponseMessage httpResponseMessageForType = await httpClient.GetAsync($"https://localhost:7014/api/type/{typeId}");
-                        Type? type = await httpResponseMessageForType.Content.ReadFromJsonAsync<Type>();
-
-                        if (type is not null)
-                        {
-                            computer.os = type.description;
-                        }
-                    }
-                    else
-                    {
-                        computer.os = "Unknown";
-                    }
+                    Computers = computers.ToList(); ;
                 }
-            }*/
 
-            if (computers != null && computers?.Count() != 0)
-            {
-                Computers = computers.ToList(); ;
+                StateHasChanged();
             }
         }
 

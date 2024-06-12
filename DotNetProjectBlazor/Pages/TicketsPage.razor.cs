@@ -10,17 +10,22 @@ namespace DotNetProjectBlazor.Pages
         public int UserId { get; set; }
         private List<Ticket> Tickets = new List<Ticket>();
 
-        protected override async Task OnInitializedAsync()
+        protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            HttpClient httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("Authorization", await LocalStorage.GetItemAsStringAsync("Token"));
-            HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"{Config.APIEndpoint}/api/ticket");
-
-            IEnumerable<Ticket>? tickets = await httpResponseMessage.Content.ReadFromJsonAsync<IEnumerable<Ticket>>();
-
-            if (tickets != null && tickets?.Count() != 0)
+            if (firstRender)
             {
-                Tickets = tickets.ToList();
+                HttpClient httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Add("Authorization", await LocalStorage.GetItemAsStringAsync("Token"));
+                HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"{Config.APIEndpoint}/api/ticket");
+
+                IEnumerable<Ticket>? tickets = await httpResponseMessage.Content.ReadFromJsonAsync<IEnumerable<Ticket>>();
+
+                if (tickets != null && tickets?.Count() != 0)
+                {
+                    Tickets = tickets.ToList();
+                }
+
+                StateHasChanged();
             }
         }
 
